@@ -23,7 +23,7 @@ app.use(
         host     : 'localhost',
         user     : 'root',
         password : 'root',
-        database : 'classroomfriends',
+        database : 'classroomprofessionals',
         debug    : false //set true if you wanna see debug logger
     },'request')
 );
@@ -45,7 +45,7 @@ router.use(function(req, res, next) {
 var login = router.route('/login');
 
 login.get(function(req,res,next){
-  res.render('index-register');
+  res.render('index');
 });
 
 login.post(function(req,res,next){

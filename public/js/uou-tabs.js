@@ -1,14 +1,9 @@
-/*
- * Copyright 2014 Valeriu Timbuc
- * vtimbuc.com
- */
 
 ;(function($) {
-
   "use strict";
 
 	var defaults = {
-		accordionOn: ['xs']
+		accordionOn: ['xl']
 	};
 
 	$.fn.uouTabs = function(options) {
