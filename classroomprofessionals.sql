@@ -26,10 +26,7 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `dob` varchar(100) NOT NULL,
-  `gender` varchar(45) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `country` varchar(100) NOT NULL,
+  `phone` varchar(45) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,7 +37,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('Sarah Cruiz','sarah@gmail.com','iitr','631132200000','Male','Roorkee','Australia'),('Shubham Madheysia','submiitr07@gmail.com','iitr','773519400000','Male','GORAKHPUR','India');
+INSERT INTO `users` VALUES ('New','new@gmail.com','iitr','123'),('Shubham','sa@gmail.com','iitr','9756526651'),('Sarah Cruiz','sarah@gmail.com','iitr','1234567890'),('Shubham Madheysia','submiitr07@gmail.com','iitr','0987654321');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-07 18:27:05
+-- Dump completed on 2017-09-09  2:39:08

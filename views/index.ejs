@@ -60,21 +60,23 @@
                 <!-- REGISTER -->
                 <div class="content" >
                   <div id="register">
-                    <form>
-                      <input type="text" placeholder="Full Name">
-                      <input type="email" placeholder="Email Address">
-                      <input type="text" placeholder="Phone">
-                      <input type="password" placeholder="Password">
-                      <button type="submit">Register</button>
+                    <form id="register-form">
+                      <input type="text" placeholder="Full Name" id="fullName" name="fullName">
+                      <input type="email" placeholder="Email Address" id="email" name="email">
+                      <input type="text" placeholder="Phone" id="phone" name="phone">
+                      <input type="password" placeholder="Password" id="password" name="password">
+                      <p style="color: #660000; background-color: #ffcccc; padding-left: 20px" id="register-error"></p>
+                      <button onclick="register('signUp')">Register</button>
                     </form>
                   </div>
 
                   <!-- LOGIN -->
                   <div id="log-in" class="active">
-                    <form>
-                      <input type="email" placeholder="Email Address">
-                      <input type="password" placeholder="Password">
-                      <button type="submit">Login</button>
+                    <form id="logIn-form">
+                      <input type="email" placeholder="Email Address" id="my-email" name="email">
+                      <input type="password" placeholder="Password" id="my-password" name="password">
+                      <p style="color: #660000; background-color: #ffcccc; padding-left: 20px" id="login-error"></p>
+                      <button onclick="register('signIn')">Login</button>
                     </form>
                   </div>
                 </div>
@@ -277,7 +279,90 @@
 <script src="js/gmap3.min.js"></script>
 <script src="js/scripts.js"></script>
 <script>
+  function register(label){
+    debugger;
+    var check = false;
+    var errorlabel;
+    if(label == 'signIn'){
+      if($("#my-email").val()=="")
+        errorlabel = "Invalid EmailId";
+      else if($("#my-password").val()=="")
+        errorlabel = "Invalid Password";
+      else
+        check = "true";
+    }
+    else {
+      if($("#fullName").val()=="")
+        errorlabel = "Empty fullName";
+      else if($("#email").val()=="")
+        errorlabel = "Invalid emailId";
+      else if($("#phone").val()=="")
+        errorlabel = "Invalid phone";
+      else if($("#password").val()=="")
+        errorlabel = "Invalid password";
+      else
+        check = "true";
+    }
 
+    if(check===false){
+      if(label == 'signIn'){
+        $("#login-error").text(errorlabel);
+        setTimeout(function(){ $("#login-error").text(''); }, 5000);
+      }
+      else {
+        $("#register-error").text(errorlabel);
+        setTimeout(function(){ $("#register-error").text(''); }, 5000);
+      }
+    }
+    else {
+
+      var details = (label == 'signIn') ? $("#logIn-form").serialize() : $("#register-form").serialize() ;
+      $.ajax({
+        url:"/login",
+        type:"post",
+        data: details,
+        success:function(res){
+          debugger;
+          // Check browser support
+          if (typeof(Storage) !== "undefined"){
+            if (label == 'signIn') {
+              localStorage.setItem("name", res);
+              localStorage.setItem("email", $("#my-email").val());
+            } else {
+              localStorage.setItem("name", $("#fullName").val());
+              localStorage.setItem("email", $("#email").val());
+            }
+          }
+
+          window.location.href = '/dashboard';
+          return false;
+        },
+        error:function(xhr, status, error){
+          debugger;
+
+          var err = '';
+          if (error == "Bad Request")
+            err = "Invalid credinationals";
+          else {
+            $.each(JSON.parse(xhr.responseText) , function(i, item) {
+              err += item.msg;
+            });
+          }
+
+          if(label == 'signIn'){
+            $("#login-error").text(err);
+            setTimeout(function(){ $("#login-error").text(''); }, 5000);
+          }
+          else {
+            $("#register-error").text(err);
+            setTimeout(function(){ $("#register-error").text(''); }, 5000);
+          }
+
+          return false;
+        }
+      });
+    }
+  }
 </script>
 </body>
 </html>
