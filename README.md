@@ -2,8 +2,8 @@
 project for DBMS course Students only
 
 
-<img src="https://raw.githubusercontent.com/madHEYsia/ClasssroomProfessionals/master/screenshot.JPG" >
-<img src="https://raw.githubusercontent.com/madHEYsia/ClasssroomProfessionals/master/screenshot1.JPG" >
+<img src="https://raw.githubusercontent.com/madHEYsia/ClassroomProfessionals/master/screenshot.JPG" >
+<img src="https://raw.githubusercontent.com/madHEYsia/ClassroomProfessionals/master/screenshot1.JPG" >
 
 This is an example of RESTful CRUD in Node.js n mySQL.
 
