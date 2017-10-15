@@ -1,4 +1,5 @@
 # ClasssroomProfessionals
+Note - Report.pdf contains the database design part. It covers normalized ERD, FDs, PAs, NPAs and normalization steps.
 project for DBMS course Students only
 
 
