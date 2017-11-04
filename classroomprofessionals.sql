@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.19, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
--- Host: localhost    Database: classroomprofessionals
+-- Host: 127.0.0.1    Database: classroomprofessionals
 -- ------------------------------------------------------
--- Server version	5.7.19-log
+-- Server version	5.7.20-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -521,7 +521,7 @@ CREATE TABLE `professionals` (
   `profilepicture` varchar(100) DEFAULT NULL,
   `summary` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -530,7 +530,7 @@ CREATE TABLE `professionals` (
 
 LOCK TABLES `professionals` WRITE;
 /*!40000 ALTER TABLE `professionals` DISABLE KEYS */;
-INSERT INTO `professionals` VALUES (1,'rajat','rajats920@gmail.com',123456,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'name ','name@name.com',123456,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'ravi','ravichandora@gmail.com',23456789,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'rashmin','rashmin@gmail.com',36789,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'atul','atul@gmail.com',45678,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'rajat','rajats920@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'rajat','rajats920@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'hello','hello@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'hello','hello@gmail.com',52,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'qwert','qwert@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'akash','akash@gmail.com',345678,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'miracle','miracle@gmail.com',1234,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,'matu','matu@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'gh','gh@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,'gh','gh@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,'gh','gh@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(17,'kuroky','kuroky@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,'mc','mc@gmail.com',12345,'12345',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `professionals` VALUES (1,'Akash','akash@gmail.com',12345,'12345','Software Developer','1997-12-11','Bengalore',5,'IT','Bangalore','India','\"img/ak.png\"','I am Developer.'),(2,'Ravi','ravichandora@gmail.com',12345,'12345','Front Hand Developer','1997-10-23','Pune',1,'IT','Pune','India','\"img/ravi.jpeg\"','I am a front hand Developer.'),(3,'Rashmin','rashmin@gmail.com',36789,'12345','Financial Manager','1881-01-05','Lahore',2,'Finance','Lahore','Pakistan','\"img/1.jpeg\"','I am Banker.'),(4,'Atul','atul@gmail.com',45678,'12345','Product Manager','1884-10-12','Las Vegas',3,'Marketing','Las Vegas','USA','\"img/2.jpg\"','I am product Manager'),(5,'Rajat','rajats920@gmail.com',12345,'12345','Politician','1965-11-11','Bihar',15,'Politics','Muzzafarpur','India','\"img/5.jpg\"','Looking forward for the Curruption free India'),(7,'Kunal','kunal@gmail.com',12345,'12345','Peon','1995-12-01','Maldives',1,'Public Services','Maldivs','India','\"img/10.jpeg\"','Looking for driver job.'),(9,'Shubham','shubham@gmail.com',12345,'12345','Gatekeeper','1991-01-12','Seria',5,'IT','Brunei','Seria','\"img/3.jpg\"','Its my job to stop people.'),(11,'miracle','miracle@gmail.com',1234,'12345','Software Developer','1997-12-10','Pune',1,'Finance','Pune','India','\"img/4.jpg\"','I am Developer.'),(12,'matu','matu@gmail.com',12345,'12345','Front Hand Developer','1995-05-10','Gaya',2,'IT','Gaya','India','\"img/5.jpg\"','I am goot at my work.'),(13,'gh','gh@gmail.com',12345,'12345','Financial Manager','1991-12-10','Delhi',3,'Gaming','Delhi','India','\"img/6.jpg\"','I love my JOb'),(16,'kuroky','kuroky@gmail.com',12345,'12345','Product Manager','1997-11-11','Rajkot',4,'E-Commerce','Rajkot','India','\"img/7.jpg\"','Hard working guy'),(18,'mota','mota@mota.com',99999,'12345','Gatekeeper','1997-12-12','Surat',1,'Education','Surat','India','\"img/8.jpg\"','Looking forward for gardner job');
 /*!40000 ALTER TABLE `professionals` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -709,4 +709,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-04 20:47:53
+-- Dump completed on 2017-11-06  3:39:44
