@@ -1,0 +1,28 @@
+<div class="box-shadow-for-ui">
+  <div class="uou-block-2b">
+    <div class="container"> <a href="index.html#" class="logo"><img src="images/logo.png" alt=""></a> <a href="index.html#" class="mobile-sidebar-button mobile-sidebar-toggle"><span></span></a>
+      <nav class="nav">
+        <ul class="sf-menu">
+          <!-- <li class="active"><a href="index.html"><i class="fa  fa-home"></i></a></li> -->
+          <li> <a href="#">Search</a> </li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/dashboard" id="profile" ></a></li>
+          <li> <a href="#">Settings</a>
+            <ul>
+              <li><a href="#">Account Setting</a></li>
+              <li><a href="#">Delete Account</a></li>
+              <li><a href="/login">sign Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- end .uou-block-2b -->
+</div>
+<script>
+  if (localStorage.name!=undefined){
+    document.getElementById("profile").text = localStorage.name;
+  }
+
+</script>
