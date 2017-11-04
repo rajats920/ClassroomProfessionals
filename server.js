@@ -192,21 +192,36 @@ dashboard.get(function(req,res,next){
 var blog = router.route('/blog');
 
 blog.get(function(req, res, next){
-    res.render('/blog');
+    var blogdetails, blogcount;
+
     req.getConnection(function(err, conn) {
         if(err){
             return next("cannot connect");
         }
         else{
             // query here
-            // conn.query("SELECT * FROM ")
+            conn.query("SELECT * FROM classroomprofessionals.articles WHERE a_id = (SELECT a_id FROM classroomprofessionals.post ORDER BY post_time DESC )", function(err, rows) {
+                if(err){
+                    return next("Mysql error. Check your query.");
+                }
+                else {
+                    blogdetails = JSON.parse(JSON.stringify(rows));
+                    blogcount = Object.keys(blogdetails).length;
+                    console.log(blogdetails);
+                    console.log(blogcount);
+                    res.render('blog',{
+                        blogdetails: blogdetails,
+                        blogcount: blogcount
+                    });
+                }
+            })
         }
     })
 });
 
-blog.post(function (req, res, next) {
-    
-})
+// blog.post(function (req, res, next) {
+//
+// })
 
 // -----------------------------------------------------------------------------
 

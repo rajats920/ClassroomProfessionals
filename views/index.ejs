@@ -343,7 +343,7 @@
 
           var err = '';
           if (error == "Bad Request")
-            err = "Invalid credinationals";
+            err = "Invalid credentials";
           else {
             $.each(JSON.parse(xhr.responseText) , function(i, item) {
               err += item.msg;
