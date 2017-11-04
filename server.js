@@ -30,9 +30,9 @@ app.use(
     },'request')
 );
 
-app.get('/blog', function (req, res) {
-    res.render('blog');
-});
+// app.get('/blog', function (req, res) {
+//     res.render('blog');
+// });
 
 // app.get('/blog-post', function (req, res) {
 //     res.render('blog-post');

@@ -55,7 +55,7 @@
             <!-- Company Information -->
             <div class="sidebar">
               <h5 class="main-title"><%= details.name %></h5>
-              <div class="sidebar-thumbnail"> <img src=details.profilepicture alt=""> </div>
+              <div class="sidebar-thumbnail"> <img src= <%= details.profilepicture %> alt=""> </div>
               <div class="sidebar-information">
                 <ul class="single-category">
                   <li class="row">
@@ -276,7 +276,7 @@
   <a href="user-dashboard(connections)(hotkeys-enabled).html#" class="mobile-sidebar-close">&times;</a>
   <nav class="main-nav">
     <ul>
-      <li><a href="/blog">Blog</a></li>
+      <li><a href="/blog" onclick="openblog()"> Blog</a></li>
       <li><a href="/dashboard" id="profile" ></a></li>
       <li> <a href="/profile_user">Settings</a>
         <ul>
@@ -302,5 +302,25 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/gmap3.min.js"></script>
 <script src="js/scripts.js"></script>
+<!--<script type="text/javascript">-->
+//    function openblog(){
+//        $.ajax({
+//            type: 'POST',
+//            url: '/dashboard',
+//            contentType: 'application/json; charset =utf-8',
+//            success: function () {
+//                window.location.href = '/blog';
+//                return false;
+//            },
+//            error: function(xhr, status, error){
+//                debugger;
+//                alert("Error 404");
+//                return false;
+//            }
+//        })
+//
+//    }
+//
+<!--</script>-->
 </body>
 </html>
