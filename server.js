@@ -219,6 +219,100 @@ blog.get(function(req, res, next){
     })
 });
 
+
+var userprofile = router.route('/profile_user');
+
+userprofile.get(function(req, res, next) {
+    var user_id = req.params.emailid;
+    console.log(user_id);
+    var userdetails, userskills, skillcount, similarprofessionals, professionalcount, jobs, jobcount;
+    req.getConnection(function(err, conn) {
+        if(err){
+            return next("Cannot Connect");
+        }
+        else{
+            conn.query("SELECT * FROM classroomprofessionals.professionals WHERE emailid = ?", user_id, function(err, rows) {
+                if(err){
+                    console.log(err);
+                    return next("Mysql error, check your query");
+
+                }
+                else{
+                    userdetails = JSON.parse(JSON.stringify(rows));
+
+                }
+
+            })
+
+            conn.query("SELECT * FROM classroomprofessionals.skills WHERE pid = (SELECT pid from classroomprofessionals.professionals WHERE emailid = ?", user_id, function(err, rows) {
+                if(err){
+                    console.log(err);
+                    return next("Mysql error, check your query");
+                }
+                else{
+                    userskills = JSON.parse(JSON.stringify(rows));
+                    skillcount = Object.keys(userskills).length;
+                }
+            })
+
+            conn.query("SELECT * FROM classroomprofessionals.professionals WHERE headline = (SELECT headline from classroomprofessionals.professionals WHERE emailid = ?", user_id, function(err, rows) {
+                if(err){
+                    console.log(err);
+                    return next("Mysql error, check your query");
+                }
+                else{
+                    similarprofessionals = JSON.parse(JSON.stringify(rows));
+                    professionalcount = Object.keys(similarprofessionals).length;
+                }
+            })
+
+            conn.query("SELECT * FROM classroomprofessionals.jobs NATURAL JOIN classroomprofessionals.company", function(err, rows) {
+                if(err){
+                    console.log(err);
+                    return next("Mysql error, check your query");
+                }
+                else{
+                    jobs = JSON.parse(JSON.stringify(rows));
+                    jobcount = Object.keys(jobs).length;
+                    res.render('profile_user',{
+                        users:userdetails,
+                        userskills:userskills,
+                        skillcount:skillcount,
+                        similarprofessionals:similarprofessionals,
+                        professionalcount:professionalcount,
+                        jobs:jobs,
+                        jobcount:jobcount
+                    })
+                }
+            })
+        }
+    })
+
+});
+
+
+var companyprofile = router.route('/profile_company');
+
+companyprofile.get(function(req, res, next) {
+    var company;
+    req.getConnection(function(err, conn) {
+        conn.query("SELECT * FROM classroomprofessionals.company WHERE emailid = ?", data.emailid, function (err, rows) {
+            if(err){
+                console.log(err);
+                return next("Mysql error, check your query");
+            }
+            else{
+                company = JSON.parse(JSON.stringify(rows));
+                res.render('profile_company',{
+                    company:company
+                })
+            }
+        })
+    })
+});
+
+
+
 // blog.post(function (req, res, next) {
 //
 // })
