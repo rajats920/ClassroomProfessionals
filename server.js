@@ -34,9 +34,9 @@ app.use(
 //     res.render('blog');
 // });
 
-// app.get('/blog-post', function (req, res) {
-//     res.render('blog-post');
-// });
+app.get('/blog-post', function (req, res) {
+    res.render('blog-post');
+});
 
 app.get('/gui-kit', function (req, res) {
     res.render('gui-kit');
@@ -152,7 +152,7 @@ dashboard.get(function(req,res,next){
                 }
             });
 
-            conn.query("SELECT * FROM classroomprofessionals.professionals WHERE pid = (SELECT p2_id FROM classroomprofessionals.connections FULL JOIN classroomprofessionals.Professionals ON p1_id = pid WHERE emailid = ?)", data.emailid, function(err1, rows1) {
+            conn.query("SELECT * FROM classroomprofessionals.professionals WHERE pid in (SELECT p2_id FROM classroomprofessionals.connections FULL JOIN classroomprofessionals.Professionals ON p1_id = pid WHERE emailid = ?)", data.emailid, function(err1, rows1) {
                 console.log(rows1);
                 if(err){
                     console.log(err1);
@@ -162,10 +162,12 @@ dashboard.get(function(req,res,next){
                     connectiondetails = JSON.parse(JSON.stringify(rows1));
                     console.log(connectiondetails);
                     connectionCount = Object.keys(connectiondetails).length;
+                    console.log(details);
+
                 }
             });
 
-            conn.query("Select * FROM classroomprofessionals.company WHERE company_id = (SELECT company_id FROM classroomprofessionals.follows NATURAL JOIN classroomprofessionals.Professionals  WHERE emailid = ?)", data.emailid, function(err1, rows1) {
+            conn.query("Select * FROM classroomprofessionals.company WHERE company_id in (SELECT company_id FROM classroomprofessionals.follow NATURAL JOIN classroomprofessionals.Professionals  WHERE emailid = ?)", data.emailid, function(err1, rows1) {
                 if(err1){
                     console.log(err1);
                     return next("Mysql error, check your query");
@@ -174,8 +176,6 @@ dashboard.get(function(req,res,next){
                     followdetails = JSON.parse(JSON.stringify(rows1));
                     console.log(followdetails);
                     followCount = Object.keys(followdetails).length;
-
-                    console.log(details);
                     res.render('dashboard', {
                         details: details,
                         connectionCount: connectionCount,
@@ -183,6 +183,7 @@ dashboard.get(function(req,res,next){
                         followCount:followCount,
                         followdetails:followdetails
                     });
+
                 }
             });
         }
@@ -200,7 +201,7 @@ blog.get(function(req, res, next){
         }
         else{
             // query here
-            conn.query("SELECT * FROM classroomprofessionals.articles WHERE a_id = (SELECT a_id FROM classroomprofessionals.post ORDER BY post_time DESC )", function(err, rows) {
+            conn.query("SELECT * FROM classroomprofessionals.articles WHERE a_id in (SELECT a_id FROM classroomprofessionals.post ORDER BY post_time DESC )", function(err, rows) {
                 if(err){
                     return next("Mysql error. Check your query.");
                 }
@@ -220,10 +221,10 @@ blog.get(function(req, res, next){
 });
 
 
-var userprofile = router.route('/profile_user');
+var userprofile = router.route('/profile_user/:user_id');
 
 userprofile.get(function(req, res, next) {
-    var user_id = req.params.emailid;
+    var user_id = req.params.user_id;
     console.log(user_id);
     var userdetails, userskills, skillcount, similarprofessionals, professionalcount, jobs, jobcount;
     req.getConnection(function(err, conn) {
@@ -234,46 +235,51 @@ userprofile.get(function(req, res, next) {
             conn.query("SELECT * FROM classroomprofessionals.professionals WHERE emailid = ?", user_id, function(err, rows) {
                 if(err){
                     console.log(err);
-                    return next("Mysql error, check your query");
+                    return next("Mysql error, check your 1");
 
                 }
                 else{
                     userdetails = JSON.parse(JSON.stringify(rows));
+                    console.log(userdetails);
 
                 }
 
-            })
+            });
 
-            conn.query("SELECT * FROM classroomprofessionals.skills WHERE pid = (SELECT pid from classroomprofessionals.professionals WHERE emailid = ?", user_id, function(err, rows) {
+            conn.query("SELECT * FROM classroomprofessionals.skills WHERE pid in (SELECT pid from classroomprofessionals.professionals WHERE emailid = ?)", user_id, function(err, rows) {
                 if(err){
                     console.log(err);
-                    return next("Mysql error, check your query");
+                    return next("Mysql error, check your query 2");
                 }
                 else{
                     userskills = JSON.parse(JSON.stringify(rows));
                     skillcount = Object.keys(userskills).length;
-                }
-            })
+                    console.log(userskills);
 
-            conn.query("SELECT * FROM classroomprofessionals.professionals WHERE headline = (SELECT headline from classroomprofessionals.professionals WHERE emailid = ?", user_id, function(err, rows) {
+                }
+            });
+
+            conn.query("SELECT * FROM classroomprofessionals.professionals WHERE headline in (SELECT headline from classroomprofessionals.professionals WHERE emailid = ?) and emailid <> ?", [user_id, user_id], function(err, rows) {
                 if(err){
                     console.log(err);
-                    return next("Mysql error, check your query");
+                    return next("Mysql error, check your query 3");
                 }
                 else{
                     similarprofessionals = JSON.parse(JSON.stringify(rows));
                     professionalcount = Object.keys(similarprofessionals).length;
+                    console.log(similarprofessionals);
                 }
-            })
+            });
 
             conn.query("SELECT * FROM classroomprofessionals.jobs NATURAL JOIN classroomprofessionals.company", function(err, rows) {
                 if(err){
                     console.log(err);
-                    return next("Mysql error, check your query");
+                    return next("Mysql error, check your query 4");
                 }
                 else{
                     jobs = JSON.parse(JSON.stringify(rows));
                     jobcount = Object.keys(jobs).length;
+                    console.log(jobs);
                     res.render('profile_user',{
                         users:userdetails,
                         userskills:userskills,
@@ -284,7 +290,7 @@ userprofile.get(function(req, res, next) {
                         jobcount:jobcount
                     })
                 }
-            })
+            });
         }
     })
 
@@ -294,8 +300,9 @@ userprofile.get(function(req, res, next) {
 var companyprofile = router.route('/profile_company');
 
 companyprofile.get(function(req, res, next) {
-    var company;
+    var company, followers, followercount;
     req.getConnection(function(err, conn) {
+        //add err if else
         conn.query("SELECT * FROM classroomprofessionals.company WHERE emailid = ?", data.emailid, function (err, rows) {
             if(err){
                 console.log(err);
@@ -303,19 +310,61 @@ companyprofile.get(function(req, res, next) {
             }
             else{
                 company = JSON.parse(JSON.stringify(rows));
+            }
+        });
+        conn.query("SELECT * FROM classroomprofessionals.follows WHERE company_id = (SELECT company_id FROM classroomprofessionals.company WHERE emailid = ?", data.emailid, function(err, rows) {
+            if(err){
+                console.log(err);
+                return next("mysql error, check your query");
+            }
+            else {
+                followers = JSON.parse(JSON.stringify(rows));
+                followercount = Object.keys(followers).length;
+                console.log(company);
                 res.render('profile_company',{
-                    company:company
+                    company:company,
+                    followercount:followercount
                 })
             }
-        })
+
+        });
     })
 });
 
+var blogpost = router.route('/api/blog-post/:blogid');
 
+// blogpost.all(function(req, res, next) {
+//     console.log("You need to smth about blogdetails Route ? Do it here");
+//     console.log(req.params);
+//     next();
+// });
 
-// blog.post(function (req, res, next) {
-//
-// })
+blogpost.get(function(req, res, next){
+    var blogdetails;
+    var blogid = req.params.blogid;
+    console.log(blogid);
+    req.getConnection(function(err, conn){
+        if(err){
+            return next("Cannot Connect");
+        }
+        else {
+            conn.query("SELECT * FROM classroomprofessionals.articles WHERE a_id = ?", [blogid], function(err, rows) {
+                if(err){
+                    console.log(err);
+                    return next("mysql error, check your query");
+                }
+                else{
+                    blogdetails = JSON.parse(JSON.stringify(rows));
+                    console.log(blogdetails);
+                    res.render('blog-post',{
+                        blog: blogdetails
+                    })
+                }
+            })
+        }
+    })
+});
+
 
 // -----------------------------------------------------------------------------
 

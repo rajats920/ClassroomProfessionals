@@ -11,10 +11,10 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
 <!-- Style Sheet -->
-<link rel="stylesheet" href="css/owl.carousel.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/main-style.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/main-style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,8 +33,8 @@
     <div class="profile-bnr user-profile-bnr">
       <div class="container">
         <div class="pull-left">
-          <h2>Michael Peterson</h2>
-          <h5>Front-End Developer</h5>
+          <h2><%= users[0].name %></h2>
+          <h5><%= users[0].headline %></h5>
         </div>
 
         <!-- Top Riht Button -->
@@ -92,11 +92,11 @@
               <li class="active"><a data-toggle="tab" href="user-profile(layout-1).html#profile">Profile</a></li>
               <li><a data-toggle="tab" href="user-profile(layout-1).html#jobs">Jobs</a></li>
               <li><a data-toggle="tab" href="user-profile(layout-1).html#contact">Contact</a></li>
-              <li><a data-toggle="tab" href="user-profile(layout-1).html#portfolio">Portfolio</a></li>
-              <li><a data-toggle="tab" href="user-profile(layout-1).html#blog-tab">Blog Posts</a></li>
-              <li><a data-toggle="tab" href="user-profile(layout-1).html#Con-tab">Connections</a></li>
-              <li><a data-toggle="tab" href="user-profile(layout-1).html#flowrs-tabs">Followers (241)</a></li>
-              <li><a data-toggle="tab" href="user-profile(layout-1).html#foll-tabs">Following</a></li>
+              <!--<li><a data-toggle="tab" href="user-profile(layout-1).html#portfolio">Portfolio</a></li>-->
+              <!--<li><a data-toggle="tab" href="user-profile(layout-1).html#blog-tab">Blog Posts</a></li>-->
+              <!--<li><a data-toggle="tab" href="user-profile(layout-1).html#Con-tab">Connections</a></li>-->
+              <!--<li><a data-toggle="tab" href="user-profile(layout-1).html#flowrs-tabs">Followers</a></li>-->
+              <!--<li><a data-toggle="tab" href="user-profile(layout-1).html#foll-tabs">Following</a></li>-->
             </ul>
           </div>
 
@@ -112,17 +112,10 @@
                       <h3>About</h3>
                       <div class="profile-in">
                         <div class="media-left">
-                          <div class="img-profile"> <img class="media-object" src="images/avatar-1.jpg" alt=""> </div>
+                          <div class="img-profile"> <img class="media-object" src=<%= users[0].profilepicture %> alt=""> </div>
                         </div>
                         <div class="media-body">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquidautem
-                            laudantium sapiente ad enim ipsa modi labo rum accusantium deleniti neque architecto vitae.<br>
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo
-                            itate id molestiae consectetur quae pariatur repudi andae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut imcati
-                            nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda. <br>
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
+                          <p></p>
                         </div>
                       </div>
                     </div>
@@ -133,11 +126,11 @@
                     <div class="sidebar">
                       <h5 class="main-title">Skills</h5>
                       <div class="job-skills">
-
+                        <% for(var i=0;i<skillcount;i++){ %>
                         <!-- Logo Design -->
                         <ul class="row">
                           <li class="col-sm-3">
-                            <h6><i class="fa fa-plus"></i> HTML5 and Css3</h6>
+                            <h6><i class="fa fa-plus"></i><%= userskills[i].name %></h6>
                           </li>
                           <li class="col-sm-9">
                             <div class="progress">
@@ -145,101 +138,31 @@
                             </div>
                           </li>
                         </ul>
-
-                        <!-- Logo Design -->
-                        <ul class="row">
-                          <li class="col-sm-3">
-                            <h6><i class="fa fa-plus"></i> Logo Design</h6>
-                          </li>
-                          <li class="col-sm-9">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"> </div>
-                            </div>
-                          </li>
-                        </ul>
-
-                        <!-- Logo Design -->
-                        <ul class="row">
-                          <li class="col-sm-3">
-                            <h6><i class="fa fa-plus"></i> Web Design</h6>
-                          </li>
-                          <li class="col-sm-9">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"> </div>
-                            </div>
-                          </li>
-                        </ul>
-
-                        <!-- UI / UX -->
-                        <ul class="row">
-                          <li class="col-sm-3">
-                            <h6><i class="fa fa-plus"></i> UI/UX</h6>
-                          </li>
-                          <li class="col-sm-9">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"> </div>
-                            </div>
-                            <p>Preferred languages are Arabic, French & Italian. Proin nibh augue, suscipit asce lerisque sed, lacinia in, mi.</p>
-                          </li>
-                        </ul>
+                        <% } %>
                       </div>
                     </div>
 
                     <!-- Professional Details -->
                     <div class="sidebar">
                       <h5 class="main-title">Similar Professionals</h5>
+                      <% for(var j=0;j<professionalcount;j++){ %>
 
                       <!-- Similar -->
                       <div class="similar">
                         <div class="media">
                           <div class="media-left">
-                            <div class="inn-simi"> <img class="media-object" src="images/med-avatar.jpg" alt=""> <a href="user-profile(layout-1).html#">Profile </a> </div>
+                            <div class="inn-simi"> <img class="media-object" src="<%= similarprofessionals[j].profilepicture %>" alt=""> <a href="user-profile(layout-1).html#">Profile </a> </div>
                           </div>
                           <div class="media-body">
-                            <h5>Media heading</h5>
-                            <p>SEO Specialist - New York, USA</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia,
-                              voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum
-                              accusantium deleniti neque architecto vitae.</p>
+                            <h5><%= similarprofessionals[j].name %></h5>
+                            <p><%= similarprofessionals[j].headline %></p>
+                            <p><%= similarprofessionals[j].location %></p>
 
                             <!-- Share -->
                             <div class="share-w"><a href="user-profile(layout-1).html#."><i class="fa fa-bookmark-o"></i></a> <a href="user-profile(layout-1).html#."><i class="fa fa-envelope-o"></i></a> <a href="user-profile(layout-1).html#."><i class="fa fa-eye"></i></a></div>
                           </div>
                         </div>
-
-                        <!-- Similar -->
-                        <div class="media">
-                          <div class="media-left">
-                            <div class="inn-simi"> <img class="media-object" src="images/med-avatar.jpg" alt=""> <a href="user-profile(layout-1).html#">Profile </a> </div>
-                          </div>
-                          <div class="media-body">
-                            <h5>Denise Walsh</h5>
-                            <p>SEO Specialist - New York, USA</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia,
-                              voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum
-                              accusantium deleniti neque architecto vitae.</p>
-
-                            <!-- Share -->
-                            <div class="share-w"><a href="user-profile(layout-1).html#."><i class="fa fa-bookmark-o"></i></a> <a href="user-profile(layout-1).html#."><i class="fa fa-envelope-o"></i></a> <a href="user-profile(layout-1).html#."><i class="fa fa-eye"></i></a></div>
-                          </div>
-                        </div>
-
-                        <!-- Similar -->
-                        <div class="media">
-                          <div class="media-left">
-                            <div class="inn-simi"> <img class="media-object" src="images/med-avatar.jpg" alt=""> <a href="user-profile(layout-1).html#">Profile </a> </div>
-                          </div>
-                          <div class="media-body">
-                            <h5>Denise Walsh</h5>
-                            <p>SEO Specialist - New York, USA</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia,
-                              voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum
-                              accusantium deleniti neque architecto vitae.</p>
-
-                            <!-- Share -->
-                            <div class="share-w"><a href="user-profile(layout-1).html#."><i class="fa fa-bookmark-o"></i></a> <a href="user-profile(layout-1).html#."><i class="fa fa-envelope-o"></i></a> <a href="user-profile(layout-1).html#."><i class="fa fa-eye"></i></a></div>
-                          </div>
-                        </div>
+                        <% } %>
                       </div>
                     </div>
                   </div>
@@ -254,34 +177,31 @@
                         <ul class="single-category">
                           <li class="row">
                             <h6 class="title col-xs-6">Name</h6>
-                            <span class="subtitle col-xs-6">Abu Antar</span></li>
+                            <span class="subtitle col-xs-6"><%= users[0].name %></span></li>
                           <li class="row">
-                            <h6 class="title col-xs-6">Age</h6>
-                            <span class="subtitle col-xs-6">38 Years Old</span></li>
-                          <li class="row">
+                            <!--<h6 class="title col-xs-6">Age</h6>-->
+                            <!--<span class="subtitle col-xs-6"></span></li>-->
+                          <!--<li class="row">-->
                             <h6 class="title col-xs-6">Location</h6>
-                            <span class="subtitle col-xs-6">Jordan Amman</span></li>
+                            <span class="subtitle col-xs-6"><%= users[0].location %></span></li>
                           <li class="row">
-                            <h6 class="title col-xs-6">Experiance</h6>
-                            <span class="subtitle col-xs-6">15 Years</span></li>
+                            <h6 class="title col-xs-6">Experience</h6>
+                            <span class="subtitle col-xs-6"><%= users[0].experience %></span></li>
                           <li class="row">
-                            <h6 class="title col-xs-6">Dgree</h6>
-                            <span class="subtitle col-xs-6">MBA</span></li>
+                            <h6 class="title col-xs-6">Degree</h6>
+                            <span class="subtitle col-xs-6"><%= users[0].location %></span></li>
                           <li class="row">
-                            <h6 class="title col-xs-6">Career Lavel</h6>
+                            <h6 class="title col-xs-6">Career Level</h6>
                             <span class="subtitle col-xs-6">Mid-Level</span></li>
                           <li class="row">
                             <h6 class="title col-xs-6">Phone</h6>
-                            <span class="subtitle col-xs-6">(800) 123-4567</span></li>
+                            <span class="subtitle col-xs-6"><%= users[0].phone %></span></li>
                           <li class="row">
                             <h6 class="title col-xs-6">Fax </h6>
-                            <span class="subtitle col-xs-6">(800) 123-4568</span></li>
+                            <span class="subtitle col-xs-6"><%= users[0].phone %></span></li>
                           <li class="row">
                             <h6 class="title col-xs-6">E-mail</h6>
-                            <span class="subtitle col-xs-6"><a href="user-profile(layout-1).html#.">example@example.com</a></span></li>
-                          <li class="row">
-                            <h6 class="title col-xs-6">Website</h6>
-                            <span class="subtitle col-xs-6"><a href="user-profile(layout-1).html#.">example.com </a></span></li>
+                            <span class="subtitle col-xs-6"><a href="user-profile(layout-1).html#."><%= users[0].emailid %></a></span></li>
                         </ul>
                       </div>
                     </div>
@@ -341,11 +261,13 @@
                     <li><a href="user-profile(layout-1).html#"><i class="fa fa-th-large"></i></a></li>
                   </ul>
                 </div>
+
                 <div class="listing listing-1">
                   <div class="listing-section">
+                    <% for(var i=0;i<jobcount;i++){ %>
                     <div class="listing-ver-3">
                       <div class="listing-heading">
-                        <h5>Front-End Web Developer</h5>
+                        <h5><%= jobs[i].title %></h5>
                         <ul class="bookmark list-inline">
                           <li><a href="user-profile(layout-1).html#"><i class="fa fa-bookmark"></i></a></li>
                           <li><a href="user-profile(layout-1).html#"><i class="fa fa-eye"></i></a></li>
@@ -354,9 +276,9 @@
                       </div>
                       <div class="listing-inner">
                         <div class="listing-content">
-                          <h6 class="title-company">Mars Planet Telecommunications Inc.</h6>
-                          <span class="location"> <i class="fa fa-map-marker"></i> Manhattan, New york, USA </span> <span class="type-work full-time"> Full Time </span>
-                          <p>Proin gravida nibh vel velit auctor aliquet aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio pellentesque habitant morbi tristique senectus et netus et malesuada. <a href="http://new.uouapps.com/tiger-html/single_job.html">read more</a></p>
+                          <h6 class="title-company"><%= jobs[i].name %></h6>
+                          <span class="location"> <i class="fa fa-map-marker"></i> <%= jobs[i].location %> </span> <span class="type-work full-time"> <%= jobs[i].type %> </span>
+                          <p><%= jobs[i].description %></p>
                           <h6 class="title-tags">Skills required:</h6>
                           <ul class="tags list-inline">
                             <li><a href="user-profile(layout-1).html#">Javascript</a></li>
@@ -368,9 +290,8 @@
                       </div>
                       <div class="listing-tabs">
                         <ul>
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-envelope"></i> email@mail.com</a></li>
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-phone"></i> 012 345 678</a></li>
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-globe"></i> www.webstite.com</a></li>
+                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-envelope"></i><%= jobs[i].mail_id%></a></li>
+                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-phone"></i><%= jobs[i].contact %></a></li>
                           <li class="share-button"> <a href="user-profile(layout-1).html#"><i class="fa fa-share"></i> Share</a>
                             <div class="contact-share">
                               <ul>
@@ -384,47 +305,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="listing-ver-3">
-                      <div class="listing-heading">
-                        <h5>Front-End Web Developer</h5>
-                        <ul class="bookmark list-inline">
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-bookmark"></i></a></li>
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-eye"></i></a></li>
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-share"></i></a></li>
-                        </ul>
-                      </div>
-                      <div class="listing-inner">
-                        <div class="listing-content">
-                          <h6 class="title-company">Mars Planet Telecommunications Inc.</h6>
-                          <span class="location"> <i class="fa fa-map-marker"></i> Manhattan, New york, USA </span> <span class="type-work full-time"> Full Time </span>
-                          <p>Proin gravida nibh vel velit auctor aliquet aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio pellentesque habitant morbi tristique senectus et netus et malesuada. <a href="http://new.uouapps.com/tiger-html/single_job.html">read more</a></p>
-                          <h6 class="title-tags">Skills required:</h6>
-                          <ul class="tags list-inline">
-                            <li><a href="user-profile(layout-1).html#">Javascript</a></li>
-                            <li><a href="user-profile(layout-1).html#">Wordpress</a></li>
-                            <li><a href="user-profile(layout-1).html#">Presta</a></li>
-                            <li><a href="user-profile(layout-1).html#">Sass</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="listing-tabs">
-                        <ul>
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-envelope"></i> email@mail.com</a></li>
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-phone"></i> 012 345 678</a></li>
-                          <li><a href="user-profile(layout-1).html#"><i class="fa fa-globe"></i> www.webstite.com</a></li>
-                          <li class="share-button"> <a href="user-profile(layout-1).html#"><i class="fa fa-share"></i> Share</a>
-                            <div class="contact-share">
-                              <ul>
-                                <li><a href="user-profile(layout-1).html#"><i class="fa fa-facebook-square"></i></a></li>
-                                <li><a href="user-profile(layout-1).html#"><i class="fa fa-twitter-square"></i></a></li>
-                                <li><a href="user-profile(layout-1).html#"><i class="fa fa-google-plus-square"></i></a></li>
-                                <li><a href="user-profile(layout-1).html#"><i class="fa fa-linkedin-square"></i></a></li>
-                              </ul>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                    <% } %>
                   </div>
                 </div>
               </div>
@@ -456,23 +337,23 @@
                       <section class="portfolio">
                         <div class="portfolio-filters-content">
                           <!-- Portfolio Item -->
-                          <article class="development design"> <a href="img/portfolio-1.jpg" class="swipebox"> <img src="img/portfolio-1.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="development design"> <a href="/img/portfolio-1.jpg" class="swipebox"> <img src="/img/portfolio-1.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                           <!-- Portfolio Item -->
-                          <article class="design"> <a href="img/portfolio-2.jpg" class="swipebox"> <img src="img/portfolio-2.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="design"> <a href="/img/portfolio-2.jpg" class="swipebox"> <img src="/img/portfolio-2.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                           <!-- Portfolio Item -->
-                          <article class="development branding"> <a href="img/portfolio-3.jpg" class="swipebox"> <img src="img/portfolio-3.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="development branding"> <a href="/img/portfolio-3.jpg" class="swipebox"> <img src="/img/portfolio-3.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                           <!-- Portfolio Item -->
-                          <article class="development design"> <a href="img/portfolio-6.jpg" class="swipebox"> <img src="img/portfolio-6.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="development design"> <a href="/img/portfolio-6.jpg" class="swipebox"> <img src="/img/portfolio-6.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                           <!-- Portfolio Item -->
-                          <article class="branding development"> <a href="img/portfolio-4.jpg" class="swipebox"> <img src="img/portfolio-4.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="branding development"> <a href="/img/portfolio-4.jpg" class="swipebox"> <img src="/img/portfolio-4.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                           <!-- Portfolio Item -->
-                          <article class="mobile branding"> <a href="img/portfolio-5.jpg" class="swipebox"> <img src="img/portfolio-5.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="mobile branding"> <a href="/img/portfolio-5.jpg" class="swipebox"> <img src="/img/portfolio-5.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                           <!-- Portfolio Item -->
-                          <article class="branding"> <a href="img/portfolio-7.jpg" class="swipebox"> <img src="img/portfolio-7.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="branding"> <a href="/img/portfolio-7.jpg" class="swipebox"> <img src="/img/portfolio-7.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                           <!-- Portfolio Item -->
-                          <article class="branding"> <a href="img/portfolio-2.jpg" class="swipebox"> <img src="img/portfolio-2.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="branding"> <a href="/img/portfolio-2.jpg" class="swipebox"> <img src="/img/portfolio-2.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                           <!-- Portfolio Item -->
-                          <article class="design development"> <a href="img/portfolio-8.jpg" class="swipebox"> <img src="img/portfolio-8.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
+                          <article class="design development"> <a href="/img/portfolio-8.jpg" class="swipebox"> <img src="/img/portfolio-8.jpg" alt="" class="work img-responsive"> <span class="overlay"> <i class="fa fa-plus"></i> <b class="title"><strong>Photo Session</strong>Brands</b> </span> </a> </article>
                         </div>
                       </section>
                     </div>
@@ -488,7 +369,7 @@
                   <div class="profile-in">
                     <div class="row">
                       <div class="col-md-12">
-                        <article class="uou-block-7f"> <img src="img/blog-image-1.jpg" alt="" class="thumb">
+                        <article class="uou-block-7f"> <img src="/img/blog-image-1.jpg" alt="" class="thumb">
                           <div class="meta"> <span class="time-ago">3 days ago</span> <span class="category">Posted in: <a href="user-profile(layout-1).html#">Design</a></span> <a href="user-profile(layout-1).html#" class="comments">12 Comments</a> </div>
                           <h1><a href="user-profile(layout-1).html#">Perspiciatis Sint Pariatur Velit Corrupti</a></h1>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
@@ -497,7 +378,7 @@
                           <a href="user-profile(layout-1).html#" class="btn btn-small btn-primary">Read More</a> </article>
                         <!-- end .uou-block-7f -->
 
-                        <article class="uou-block-7f"> <img src="img/blog-image-2.jpg" alt="" class="thumb">
+                        <article class="uou-block-7f"> <img src="/img/blog-image-2.jpg" alt="" class="thumb">
                           <div class="meta"> <span class="time-ago">3 days ago</span> <span class="category">Posted in: <a href="user-profile(layout-1).html#">Design</a></span> <a href="user-profile(layout-1).html#" class="comments">12 Comments</a> </div>
                           <h1><a href="user-profile(layout-1).html#">Perspiciatis Sint Pariatur Velit Corrupti</a></h1>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
@@ -506,7 +387,7 @@
                           <a href="user-profile(layout-1).html#" class="btn btn-small btn-primary">Read More</a> </article>
                         <!-- end .uou-block-7f -->
 
-                        <article class="uou-block-7f"> <img src="img/blog-image-3.jpg" alt="" class="thumb">
+                        <article class="uou-block-7f"> <img src="/img/blog-image-3.jpg" alt="" class="thumb">
                           <div class="meta"> <span class="time-ago">3 days ago</span> <span class="category">Posted in: <a href="user-profile(layout-1).html#">Design</a></span> <a href="user-profile(layout-1).html#" class="comments">12 Comments</a> </div>
                           <h1><a href="user-profile(layout-1).html#">Perspiciatis Sint Pariatur Velit Corrupti</a></h1>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
@@ -515,7 +396,7 @@
                           <a href="user-profile(layout-1).html#" class="btn btn-small btn-primary">Read More</a> </article>
                         <!-- end .uou-block-7f -->
 
-                        <article class="uou-block-7f"> <img src="img/blog-image-4.jpg" alt="" class="thumb">
+                        <article class="uou-block-7f"> <img src="/img/blog-image-4.jpg" alt="" class="thumb">
                           <div class="meta"> <span class="time-ago">3 days ago</span> <span class="category">Posted in: <a href="user-profile(layout-1).html#">Design</a></span> <a href="user-profile(layout-1).html#" class="comments">12 Comments</a> </div>
                           <h1><a href="user-profile(layout-1).html#">Perspiciatis Sint Pariatur Velit Corrupti</a></h1>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
@@ -524,7 +405,7 @@
                           <a href="user-profile(layout-1).html#" class="btn btn-small btn-primary">Read More</a> </article>
                         <!-- end .uou-block-7f -->
 
-                        <article class="uou-block-7f"> <img src="img/blog-image-5.jpg" alt="" class="thumb">
+                        <article class="uou-block-7f"> <img src="/img/blog-image-5.jpg" alt="" class="thumb">
                           <div class="meta"> <span class="time-ago">3 days ago</span> <span class="category">Posted in: <a href="user-profile(layout-1).html#">Design</a></span> <a href="user-profile(layout-1).html#" class="comments">12 Comments</a> </div>
                           <h1><a href="user-profile(layout-1).html#">Perspiciatis Sint Pariatur Velit Corrupti</a></h1>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
@@ -571,7 +452,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -621,7 +502,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -646,7 +527,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -671,7 +552,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -696,7 +577,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -721,7 +602,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -758,7 +639,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -783,7 +664,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -808,7 +689,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -833,7 +714,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -858,7 +739,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -883,7 +764,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -908,7 +789,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -945,7 +826,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -970,7 +851,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -995,7 +876,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -1020,7 +901,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -1045,7 +926,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -1070,7 +951,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -1095,7 +976,7 @@
                               </div>
                               <!-- Name -->
                               <div class="fol-name">
-                                <div class="avatar"> <img src="images/sm-avatar.jpg" alt=""> </div>
+                                <div class="avatar"> <img src="/images/sm-avatar.jpg" alt=""> </div>
                                 <h6>Collin Weiland</h6>
                                 <span>Web Developer</span> </div>
                             </div>
@@ -1141,19 +1022,19 @@
   </div>
 
 <!-- Scripts -->
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script src="js/jquery-2.1.3.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/plugins/superfish.min.js"></script>
-<script src="js/jquery.ui.min.js"></script>
-<script src="js/plugins/rangeslider.min.js"></script>
-<script src="js/plugins/jquery.flexslider-min.js"></script>
-<script src="js/uou-accordions.js"></script>
-<script src="js/uou-tabs.js"></script>
-<script src="js/plugins/select2.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/gmap3.min.js"></script>
-<script src="js/scripts.js"></script>
+<script src="/https://maps.googleapis.com/maps/api/js"></script>
+<script src="/js/jquery-2.1.3.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/plugins/superfish.min.js"></script>
+<script src="/js/jquery.ui.min.js"></script>
+<script src="/js/plugins/rangeslider.min.js"></script>
+<script src="/js/plugins/jquery.flexslider-min.js"></script>
+<script src="/js/uou-accordions.js"></script>
+<script src="/js/uou-tabs.js"></script>
+<script src="/js/plugins/select2.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/gmap3.min.js"></script>
+<script src="/js/scripts.js"></script>
 <script>
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
